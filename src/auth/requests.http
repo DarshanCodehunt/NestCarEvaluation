@@ -1,0 +1,67 @@
+POST http://localhost:3000/auth/create-user
+Content-Type: application/json
+
+{
+    "email" : "darshan1.kodkani@socgen.com",
+    "password":"1234"
+}
+
+
+#### Get by id
+GET  http://localhost:3000/auth/2
+
+### Find all user
+
+GET  http://localhost:3000/auth?email=darshan.kodkani@socgen.com
+
+### delete user
+
+DELETE http://localhost:3000/auth/5111111
+
+### update user
+
+PATCH http://localhost:3000/auth/222222
+Content-Type: application/json
+
+{
+    "email":"d@r.com"
+}
+
+### signup
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+    "email":"test@test2.com",
+    "password":"12345"
+}
+
+### Signin
+
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+   "email":"test@test2.com",
+   "password":"12345"
+}
+
+### Get user
+
+GET http://localhost:3000/auth/whoami
+
+### Sign Out
+
+POST http://localhost:3000/auth/signout
+
+### Set cookie
+GET http://localhost:3000/auth/testcookie/colors/red
+
+
+### get cookie
+
+GET http://localhost:3000/auth/testcookie/colors
+
+
+
+
