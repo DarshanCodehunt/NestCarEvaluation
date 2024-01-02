@@ -1,9 +1,11 @@
+import { Reports } from 'src/reports/reports.entity';
 import {
   AfterInsert,
   AfterRemove,
   AfterUpdate,
   Column,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -17,6 +19,9 @@ export class Auth {
 
   @Column()
   password: string;
+
+  @Column({ default: true })
+  isAdmin: boolean;
 
   @AfterInsert()
   logInsert() {
@@ -32,4 +37,7 @@ export class Auth {
   logRemove() {
     console.log('Remove success for id', this.id);
   }
+
+  @OneToMany(() => Reports, (report) => report.user)
+  reports: Reports[];
 }

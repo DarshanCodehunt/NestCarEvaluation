@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Auth } from 'src/auth/auth.entity';
+import {
+  Column,
+  Entity,
+  ManyToMany,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class Reports {
@@ -7,4 +14,28 @@ export class Reports {
 
   @Column()
   price: number;
+
+  @Column({ default: false })
+  approved: boolean;
+
+  @Column()
+  make: string;
+
+  @Column()
+  model: string;
+
+  @Column()
+  year: number;
+
+  @Column()
+  latitude: number;
+
+  @Column()
+  longitude: number;
+
+  @Column()
+  mileage: number;
+
+  @ManyToOne(() => Auth, (user) => user.reports)
+  user: Auth;
 }
